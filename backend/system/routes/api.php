@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::get('/status',function(Request $request){
+	$status = array("status"=>"success","msg"=>"Alive and Happy!!");
+	return $status;
+});
