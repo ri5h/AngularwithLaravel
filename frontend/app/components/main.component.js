@@ -9,17 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var backend_service_1 = require('../services/backend.service');
 var MainComponent = (function () {
-    function MainComponent() {
+    function MainComponent(backendService) {
+        this.backendService = backendService;
         console.log("Main component Loaded");
     }
+    MainComponent.prototype.getStatus = function () {
+        this.mydata = this.backendService.getStatus();
+    };
     MainComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'main',
             templateUrl: "main.component.html",
+            providers: [backend_service_1.BackendService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [backend_service_1.BackendService])
     ], MainComponent);
     return MainComponent;
 }());
